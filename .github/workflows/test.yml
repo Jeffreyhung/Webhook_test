@@ -14,3 +14,5 @@ jobs:
         steps:
             - name: test
               run: echo "test"
+            - name: Print Webhook Payload
+              run: echo "${{ toJson(github.event) }}"
