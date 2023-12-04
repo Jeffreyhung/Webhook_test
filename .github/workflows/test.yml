@@ -20,11 +20,10 @@ jobs:
             - name: run script
               run: |
                 python3 test.py '${{ toJson(github.event.client_payload) }}'
-            - name: save payload as env
-              run: |
-                echo "PAYLOAD='${{ toJson(github.event.client_payload) }}'" >> "$GITHUB_ENV"
             - name: export output
               id: run_script
+              env:
+                PAYLOAD: ${{ toJson(github.event.client_payload) }}
               run: |
                 echo "changes = $(python3 test.py $PAYLOAD)" >> "$GITHUB_OUTPUT"
             - name: print output
