@@ -36,8 +36,7 @@ jobs:
               if : steps.run_script.outputs.changes != 'None'
               run: |
                 git switch -c 'changes_to_${{github.event.client_payload.repo}}_repo' -m
-                git pull
-                git add .
+                git add . && git commit -m "includes changes to ${{github.event.client_payload.repo}} repo"
                 git push -u origin 'changes_to_${{github.event.client_payload.repo}}_repo'
                 gh pr create -B main \
                   --title 'Changes to ${{github.event.client_payload.repo}} repo' \
