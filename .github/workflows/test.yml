@@ -40,6 +40,6 @@ jobs:
                 git push -u origin 'changes_to_${{github.event.client_payload.repo}}_repo'
                 gh pr create -B main \
                   --title 'Changes to ${{github.event.client_payload.repo}} repo' \
-                  --body '${{ steps.run_script.outputs.changes }}' 
+                  --body ${{ steps.run_script.outputs.changes }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
