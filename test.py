@@ -11,9 +11,9 @@ def main(input):
     # return "Hello "+payload['actor']+"!"
 
     message = "[getsentry/sentry](https://github.com/getsentry/sentry) "
-    message += "was moved to tag-non-production from tag-production by @jeffreyhung.\n\n "
+    message += "was moved to tag-non-production from tag-production by @jeffreyhung.<br><br> "
     message += "@jeffreyhung please review the changes for security-as-code terraform file."
-    message += "\n\n ❗ ❗ ❗  ** A `tf state rm` will be require before PR is merged**❗ ❗ ❗ "
+    message += "\<br><br> ❗ ❗ ❗  ** A `tf state rm` will be require before PR is merged**❗ ❗ ❗ "
     return message
 
 
