@@ -19,7 +19,7 @@ jobs:
                 echo "${{ github.event.client_payload }}"
             - name: run script
               run: |
-                python3 test.py ${{ toJson(github.event.client_payload) }}
+                python3 test.py `${{ toJson(github.event.client_payload) }}`
 
             - name: export output
               id: run_script
