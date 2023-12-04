@@ -38,7 +38,7 @@ jobs:
                 git config --global user.email "github-actions[bot]@users.noreply.github.com"
                 git config --global user.name "github-actions[bot]"
                 git switch -c 'changes_to_${{github.event.client_payload.repo}}_repo' -m
-                git add . && git commit -m "includes changes to ${{github.event.client_payload.repo}} repo"
+                git add * && git commit -m "includes changes to ${{github.event.client_payload.repo}} repo"
                 git push -u origin 'changes_to_${{github.event.client_payload.repo}}_repo'
                 gh pr create -B main \
                   --title 'Changes to ${{github.event.client_payload.repo}} repo' \
