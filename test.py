@@ -3,10 +3,10 @@ import json
 
 
 def main(input):
-    print("raw: "+input)
+    # print("raw: "+input)
     payload = json.loads(input)
-    print("json: "+str(payload))
-    print("actor: "+payload['actor'])
+    # print("json: "+str(payload))
+    # print("actor: "+payload['actor'])
 
     return "Hello "+payload['actor']+"!"
 
