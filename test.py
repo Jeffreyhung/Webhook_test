@@ -3,9 +3,10 @@ import json
 
 
 def main(input):
-    print(input)
+    print("raw: "+input)
     payload = json.loads(input)
-    print(payload)
+    print("json: "+payload)
+    print("actor: "+payload['actor'])
 
 if __name__ == '__main__':
     print(main(sys.argv[1]))
