@@ -17,14 +17,12 @@ jobs:
               run: |
                 echo "${{ toJson(github.event.client_payload) }}"
                 echo "${{ github.event.client_payload }}"
-            - name: run script
-              run: |
-                python3 test.py '${{ toJson(github.event.client_payload) }}'
             - name: export output
               id: run_script
               env:
                 PAYLOAD: ${{ toJson(github.event.client_payload) }}
               run: |
+                python3 test.py '${{ toJson(github.event.client_payload) }}'
                 echo "changes = $(python3 test.py '$PAYLOAD')" >> "$GITHUB_OUTPUT"
             - name: print output
               run: |
