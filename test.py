@@ -3,6 +3,7 @@ import json
 
 
 def main(input):
+    print(input)
     payload = json.loads(input)
     print(payload)
 
