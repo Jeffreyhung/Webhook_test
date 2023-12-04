@@ -27,3 +27,15 @@ jobs:
             - name: print output
               run: |
                 echo ${{ steps.run_script.outputs.changes }}
+            - name: Open PR
+              id: open_pr
+              if : steps.run_script.outputs.changes == 'True' && steps.run_script.outputs.changes != 'None'
+              run: |
+                git switch -c 'changes_to_${{github.event.client_payload.repo}}_repo' -m
+                git add .
+                git push -u origin 'changes_to_${{github.event.client_payload.repo}}_repo'
+                gh pr create -B main \
+                  --title 'Changes to ${{github.event.client_payload.repo}} repo' \
+                  --body '${{ steps.run_script.outputs.changes }}' 
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
