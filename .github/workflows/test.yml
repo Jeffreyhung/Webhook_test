@@ -23,6 +23,7 @@ jobs:
                 PAYLOAD: ${{ toJson(github.event.client_payload) }}
               run: |
                 changes=$(python3 test.py "$PAYLOAD")
+                echo $changes
                 echo "changes='$changes'" >> "$GITHUB_OUTPUT"
             - name: print output
               run: |
