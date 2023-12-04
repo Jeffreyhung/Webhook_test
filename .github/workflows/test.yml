@@ -30,7 +30,7 @@ jobs:
                 echo ${{ steps.run_script.outputs.changes }}
             - name: Open PR
               id: open_pr
-              if : steps.run_script.outputs.changes == 'True' && steps.run_script.outputs.changes != 'None'
+              if : steps.run_script.outputs.changes != 'None'
               run: |
                 git switch -c 'changes_to_${{github.event.client_payload.repo}}_repo' -m
                 git add .
