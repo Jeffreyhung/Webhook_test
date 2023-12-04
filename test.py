@@ -8,5 +8,7 @@ def main(input):
     print("json: "+str(payload))
     print("actor: "+payload['actor'])
 
+    return "Hello "+payload['actor']+"!"
+
 if __name__ == '__main__':
     print(main(sys.argv[1]))

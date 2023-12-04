@@ -20,3 +20,12 @@ jobs:
             - name: run script
               run: |
                 python3 test.py '${{ toJson(github.event.client_payload) }}'
+
+            - name: export output
+              id: run_script
+              run: |
+                echo "changes = $(python3 test.py ${{ toJson(github.event.client_payload) }})" >> "$GITHUB_OUTPUT"
+            
+            - name: print output
+              run: |
+                echo ${{ steps.run_script.outputs.changes }}
