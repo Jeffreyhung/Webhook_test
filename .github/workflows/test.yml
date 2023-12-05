@@ -27,7 +27,7 @@ jobs:
               run: |
                 changes=$(python3 test.py "$PAYLOAD")
                 echo $changes
-                echo "changes=$changes" >> "$GITHUB_OUTPUT"
+                echo "changes='$changes'" >> "$GITHUB_OUTPUT"
             - name: print output
               run: |
                 echo ${{ steps.run_script.outputs.changes }}
