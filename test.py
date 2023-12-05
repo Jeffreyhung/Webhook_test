@@ -23,6 +23,7 @@ def main(input):
         "tag-to-be-production-20231114"
         ]
     }
+    payload = json.loads(input)
 
     message = f"[{payload['repo']}](https://github.com/{payload['repo']}) was moved to {payload['tags'][0]} from {payload['tags'][0]} by @{payload['actor']}."
     message += f"\n\n {payload['actor']}please review the changes for security-as-code terraform file."
