@@ -9,6 +9,7 @@ def main(input):
     # print("actor: "+payload['actor'])
 
     # return "Hello "+payload['actor']+"!"
+    open("test.txt", "w").write("test")
 
     message = "[getsentry/sentry](https://github.com/getsentry/sentry) "
     message += "was moved to tag-non-production from tag-production by @jeffreyhung.<br><br> "
