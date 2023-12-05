@@ -26,10 +26,10 @@ def main(input):
     payload = json.loads(input)
 
     message = f"[{payload['repo']}](https://github.com/{payload['repo']}) was moved to {payload['tags'][0]} from {payload['tags'][0]} by @{payload['actor']}."
-    message += f"\n\n {payload['actor']}please review the changes for security-as-code terraform file."
+    message += f"<br><br> {payload['actor']}please review the changes for security-as-code terraform file."
 
     if True:
-        message += "\n\n ❗ ❗ ❗  **A `tf state rm` will be require before PR is merged**❗ ❗ ❗ "
+        message += "<br><br> ❗ ❗ ❗  **A `tf state rm` will be require before PR is merged**❗ ❗ ❗ "
     return message
 
 
